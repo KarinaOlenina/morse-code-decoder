@@ -1,5 +1,5 @@
 import React from 'react';
-import {Slider, Snackbar, styled, TextField, Typography} from '@mui/material';
+import { Snackbar, styled, TextField, Typography} from '@mui/material';
 import {
   VolumeUp as VolumeUpIcon,
   ContentCopy as ContentCopyIcon,
@@ -10,6 +10,7 @@ import Column from '../Column/Column';
 import Row from '../Row/Row';
 import { BaseButton } from '../BaseButton/BaseButton';
 import playMorseCodeSound from '../../morseCode/playMorseCodeSound';
+import MorseSlider from "../Slider/MorseSlider";
 
 const StyledButton = styled(BaseButton)(() => ({
   display: 'flex',
@@ -37,44 +38,6 @@ const StyledTextField = styled(TextField)({
   },
 });
 
-const StyledSlider = styled(Slider)({
-    color: '#EBEBEB',
-    height: 8,
-    '& .MuiSlider-track': {
-        border: 'none',
-    },
-    '& .MuiSlider-thumb': {
-        height: 24,
-        width: 24,
-        backgroundColor: '#ff79f2',
-        '&:focus, &:hover, &.Mui-active, &.Mui-focusVisible': {
-            boxShadow: 'inherit',
-        },
-        '&:before': {
-            display: 'none',
-        },
-    },
-    '& .MuiSlider-valueLabel': {
-        lineHeight: 1.2,
-        fontSize: 12,
-        background: 'unset',
-        padding: 0,
-        width: 32,
-        height: 32,
-        borderRadius: '50% 50% 50% 0',
-        backgroundColor: '#ff79f2',
-        transformOrigin: 'bottom left',
-        transform: 'translate(50%, -100%) rotate(-45deg) scale(0)',
-        '&:before': { display: 'none' },
-        '&.MuiSlider-valueLabelOpen': {
-            transform: 'translate(50%, -100%) rotate(-45deg) scale(1)',
-        },
-        '& > *': {
-            transform: 'rotate(45deg)',
-        },
-    },
-});
-
 export default function DecodeTextInput(): JSX.Element {
   const [inputText, setInputText] = useState<string>('');
   const [morseCodeResult, setMorseCodeResult] = useState<string>('');
@@ -82,7 +45,7 @@ export default function DecodeTextInput(): JSX.Element {
   const [focusedTextField, setFocusedTextField] = useState<string | null>(null);
   const [openSnackbar, setOpenSnackbar] = useState<boolean>(false);
   const [snackbarMessage, setSnackbarMessage] = useState<string>('');
-  const [sliderValue, setSliderValue] = useState<number>(600);
+  const [sliderFrequencyValue, setSliderFrequencyValue] = useState<number>(600);
   const [sliderWpmValue, setSliderWpmValue] = useState<number>(20);
 
   useEffect(() => {
@@ -102,7 +65,6 @@ export default function DecodeTextInput(): JSX.Element {
     if (/^[a-zA-Z]*$/.test(inputValue)) {
       setInputText(inputValue);
     } else {
-      // Відображення попередження
       setOpenSnackbar(true);
       setSnackbarMessage('Invalid characters. Only Latin letters are allowed.');
     }
@@ -128,16 +90,16 @@ export default function DecodeTextInput(): JSX.Element {
     const handleSliderWpmChange = (event: Event, newValue: number | number[]) => {
         setSliderWpmValue(newValue as number);
     };
-    const handleSliderChange = (event: Event, newValue: number | number[]) => {
-        setSliderValue(newValue as number);
+    const handleSliderFrequencyChange = (event: Event, newValue: number | number[]) => {
+        setSliderFrequencyValue(newValue as number);
     };
 
-  const handlePlaySound = () => {
+  const handlePlaySoundText = () => {
     // playMorseCodeSound(morseCodeResult);
   };
 
   const handlePlaySoundMorse = () => {
-        playMorseCodeSound(audioRef, morseCodeResult, sliderWpmValue, sliderValue);
+        playMorseCodeSound(audioRef, morseCodeResult, sliderWpmValue, sliderFrequencyValue);
     };
 
 
@@ -171,7 +133,7 @@ export default function DecodeTextInput(): JSX.Element {
       <Row justify={'end'}>
         <StyledButton
           color="primary"
-          onClick={type === 'morse' ? handlePlaySoundMorse : handlePlaySound}>
+          onClick={type === 'morse' ? handlePlaySoundMorse : handlePlaySoundText}>
           <VolumeUpIcon />
         </StyledButton>
         <audio ref={audioRef}></audio>
@@ -223,29 +185,21 @@ export default function DecodeTextInput(): JSX.Element {
               />
           </Row>
           <Column>
-              <Typography fontSize={'38px'} fontFamily={'Poiret One, sans-serif'}>
-                  wpm
-              </Typography>
-              <StyledSlider
-                  aria-label="wpm"
+              <MorseSlider
                   value={sliderWpmValue}
+                  label={'wpm'}
                   onChange={handleSliderWpmChange}
-                  valueLabelDisplay="auto"
+                  valueLabelDisplay={"auto"}
                   step={5}
-                  marks
                   min={5}
                   max={60}
               />
-              <Typography fontSize={'38px'} fontFamily={'Poiret One, sans-serif'}>
-                  frequency
-              </Typography>
-              <StyledSlider
-                  aria-label="Frequency"
-                  value={sliderValue}
-                  onChange={handleSliderChange}
-                  valueLabelDisplay="auto"
+              <MorseSlider
+                  value={sliderFrequencyValue}
+                  label={'Frequency'}
+                  onChange={handleSliderFrequencyChange}
+                  valueLabelDisplay={"auto"}
                   step={100}
-                  marks
                   min={100}
                   max={1600}
               />

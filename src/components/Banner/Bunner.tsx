@@ -5,6 +5,8 @@ import Column from '../Column/Column';
 import '@fontsource/poiret-one';
 // @ts-ignore
 import morseImg from '../../assets/img/morse.svg';
+// @ts-ignore
+import arrowDown from '../../assets/img/arrow-down.svg';
 import { useEffect, useState } from 'react';
 
 const pinkColor = '#FF79F2';
@@ -23,8 +25,8 @@ const StyledTryButton = styled(ButtonBase)(() => ({
   cursor: 'pointer',
   width: '230px',
   marginTop: '35px',
-  borderTop: '1.5px solid #000',
-  borderRight: '1.5px solid #000',
+  borderTop: '2px solid #000',
+  borderRight: '2px solid #000',
 }));
 
 const Colored = styled('span')(({ color }) => ({
@@ -100,6 +102,11 @@ export default function Banner(): JSX.Element {
               <span className="wrap">{displayedText}</span>
             </span>
           </Typography>
+          <img style={{
+            position: 'absolute',
+            right: '-17px',
+            top: '60px',
+          }} src={arrowDown} alt={'arrowDown'} />
         </StyledTryButton>
       </Column>
       <Row>
