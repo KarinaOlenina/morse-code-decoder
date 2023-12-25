@@ -5,3 +5,4 @@ node_modules/
 README.md
 src/**/*.css
 public/*
+!/src/components/DecodeTextInput/DecodeTextInput.tsx

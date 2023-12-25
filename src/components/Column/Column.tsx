@@ -1,8 +1,8 @@
 import { Box, styled } from '@mui/material';
-import {Gap} from "../Row/Row";
+import { Gap } from '../Row/Row';
 
 export const Column = styled(Box)<{
-  gap?: Gap;
+  gap?: Gap | string;
 }>(({ gap }) => ({
   display: 'flex',
   flexDirection: 'column',
