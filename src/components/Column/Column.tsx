@@ -3,10 +3,10 @@ import { Gap } from '../Row/Row';
 
 export const Column = styled(Box)<{
   gap?: Gap | string;
-}>(({ gap }) => ({
+}>(({ gap, justifyContent}) => ({
   display: 'flex',
   flexDirection: 'column',
-  justifyContent: 'flex-start',
+  justifyContent: `${justifyContent || 'flex-start'}`,
   gap: `${gap}`,
 }));
 

@@ -15,7 +15,7 @@ const Colored = styled('span')(() => ({
 }));
 export default function ArticleMorseCode() {
     return(
-        <StyledContainer>
+        <StyledContainer id={'what-is-morse-code'}>
             <Column width={'100%'}>
                 <Typography fontSize={'58px'} fontFamily={'Poiret One, sans-serif'} marginBottom={'50px'}>
                     What is Morse code<Colored color={'lightGreenColor'}>?</Colored>

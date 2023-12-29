@@ -10,7 +10,7 @@ const StyledContainer = styled(Container)(() => ({
 
 export default function Decoder(): JSX.Element {
   return (
-    <StyledContainer maxWidth="lg" style={{ gap: '25px' }}>
+    <StyledContainer maxWidth="lg" style={{ gap: '25px' }} id="morse-decoder-section">
       <DecodeTextInput />
     </StyledContainer>
   );

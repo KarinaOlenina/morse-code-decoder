@@ -146,7 +146,7 @@ export default function AlphabetTable() {
     };
 
     return (
-        <StyledContainer>
+        <StyledContainer id={'morse-code-alphabet'}>
             <Column width={'100%'}>
                 <Typography fontSize={'58px'} fontFamily={'Poiret One, sans-serif'} marginBottom={'50px'}>
                     Morse  Code alphabet

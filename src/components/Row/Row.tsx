@@ -11,16 +11,16 @@ export const gapValues = {
 export type Gap = keyof typeof gapValues;
 
 const Row = styled(Box)<{
-  justify?: string;
+  justifyContent?: string;
   align?: string;
   gap?: Gap | string;
   border?: string;
   borderRadius?: string;
   width?: string;
   padding?: string;
-}>(({ justify, align, gap, border, borderRadius, width, padding }) => ({
+}>(({ justifyContent, align, gap, border, borderRadius, width, padding }) => ({
   display: 'flex',
-  justifyContent: `${justify || 'flex-start'}`,
+  justifyContent: `${justifyContent || 'flex-start'}`,
   alignItems: `${align || 'center'}`,
   gap: `${gap}`,
   border: `${border}`,

@@ -33,7 +33,7 @@ const StyledTextField = styled(TextField)({
       borderColor: '#808080',
     },
     '&.Mui-focused fieldset': {
-      borderColor: '#FF79F2',
+      borderColor: '#8CFF79FF',
     },
   },
 });
@@ -130,7 +130,7 @@ export default function DecodeTextInput(): JSX.Element {
           {type === 'morse' ? 'Morse' : 'Text'}
         </Typography>
       </Row>
-      <Row justify={'end'}>
+      <Row justifyContent={'end'}>
         <StyledButton
           color="primary"
           onClick={type === 'morse' ? handlePlaySoundMorse : handlePlaySoundText}>

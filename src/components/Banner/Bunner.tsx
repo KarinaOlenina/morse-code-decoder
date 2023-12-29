@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, ButtonBase, Container, styled, Typography } from '@mui/material';
+import {Box, ButtonBase, Container, Link, styled, Typography} from '@mui/material';
 import Row from '../Row/Row';
 import Column from '../Column/Column';
 import '@fontsource/poiret-one';
@@ -79,7 +79,7 @@ export default function Banner(): JSX.Element {
   };
 
   return (
-    <StyledContainer maxWidth="lg" style={{ gap: '25px' }}>
+    <StyledContainer maxWidth="lg" style={{ gap: '25px' }} id={'banner-section'}>
       <Column>
         <Box>
           <Typography
@@ -90,24 +90,26 @@ export default function Banner(): JSX.Element {
             <Colored color={'lightGreenColor'}>o</Colored>der
           </Typography>
         </Box>
+        <Link href={'#morse-decoder-section'} color="inherit" underline="none">
         <StyledTryButton>
-          <Typography
-            fontWeight={700}
-            fontSize={'38px'}
-            fontFamily={'Poiret One, sans-serif'}>
+            <Typography
+                fontWeight={700}
+                fontSize={'38px'}
+                fontFamily={'Poiret One, sans-serif'}>
             <span
-              className="txt-rotate"
-              data-period="1000"
-              data-rotate='[ "- .-. -.--", "Try" ]'>
+                className="txt-rotate"
+                data-period="1000"
+                data-rotate='[ "- .-. -.--", "Try" ]'>
               <span className="wrap">{displayedText}</span>
             </span>
-          </Typography>
+            </Typography>
           <img style={{
             position: 'absolute',
             right: '-17px',
             top: '60px',
           }} src={arrowDown} alt={'arrowDown'} />
         </StyledTryButton>
+        </Link>
       </Column>
       <Row>
         <Box>
