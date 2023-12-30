@@ -1,5 +1,5 @@
 import React from 'react';
-import { Snackbar, styled, TextField, Typography} from '@mui/material';
+import {Slider, Snackbar, styled, TextField} from '@mui/material';
 import {
   VolumeUp as VolumeUpIcon,
   ContentCopy as ContentCopyIcon,
@@ -11,32 +11,33 @@ import Row from '../Row/Row';
 import { BaseButton } from '../BaseButton/BaseButton';
 import playMorseCodeSound from '../../morseCode/playMorseCodeSound';
 import MorseSlider from "../Slider/MorseSlider";
+import MorseTypography from "../../theme/MorseTypography";
 
 const StyledButton = styled(BaseButton)(() => ({
   display: 'flex',
   width: '50px',
 }));
 
-const StyledTextField = styled(TextField)({
+const StyledTextField = styled(TextField)(({theme}) => ({
   '& label.Mui-focused': {
-    color: '#bdbdbd',
+    color: theme.palette.custom.textTertiary,
   },
   '& .MuiInput-underline:after': {
-    borderBottomColor: '#FF79F2',
+    borderBottomColor: theme.palette.custom.accentPink,
   },
   '& .MuiOutlinedInput-root': {
     '& fieldset': {
-      borderColor: '#000000',
+      borderColor: theme.palette.custom.textPrimary,
       borderRadius: '0px',
     },
     '&:hover fieldset': {
-      borderColor: '#808080',
+      borderColor: theme.palette.custom.textSecondary,
     },
     '&.Mui-focused fieldset': {
-      borderColor: '#8CFF79FF',
+      borderColor: theme.palette.custom.accentGreen,
     },
   },
-});
+}));
 
 export default function DecodeTextInput(): JSX.Element {
   const [inputText, setInputText] = useState<string>('');
@@ -126,9 +127,9 @@ export default function DecodeTextInput(): JSX.Element {
   const renderButtons = (type: string) => (
     <Row>
       <Row>
-        <Typography fontSize={'58px'} fontFamily={'Poiret One, sans-serif'}>
+        <MorseTypography variant={'rxlg58'}>
           {type === 'morse' ? 'Morse' : 'Text'}
-        </Typography>
+        </MorseTypography>
       </Row>
       <Row justifyContent={'end'}>
         <StyledButton

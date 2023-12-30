@@ -1,5 +1,6 @@
 import React from 'react';
-import {Slider, styled, Typography} from '@mui/material';
+import {Slider, styled} from '@mui/material';
+import MorseTypography from "../../theme/MorseTypography";
 
 type SliderProps = {
     value: number;
@@ -11,8 +12,8 @@ type SliderProps = {
     label: string;
 };
 
-const StyledSlider = styled(Slider)({
-    color: '#EBEBEB',
+const StyledSlider = styled(Slider)(({theme}) => ({
+    color: theme.palette.custom.backgroundInteractive,
     height: 8,
     '& .MuiSlider-track': {
         border: 'none',
@@ -20,7 +21,7 @@ const StyledSlider = styled(Slider)({
     '& .MuiSlider-thumb': {
         height: 24,
         width: 24,
-        backgroundColor: '#ff79f2',
+        backgroundColor: theme.palette.custom.accentPink,
         '&:focus, &:hover, &.Mui-active, &.Mui-focusVisible': {
             boxShadow: 'inherit',
         },
@@ -36,7 +37,7 @@ const StyledSlider = styled(Slider)({
         width: 32,
         height: 32,
         borderRadius: '50% 50% 50% 0',
-        backgroundColor: '#ff79f2',
+        backgroundColor: theme.palette.custom.accentPink,
         transformOrigin: 'bottom left',
         transform: 'translate(50%, -100%) rotate(-45deg) scale(0)',
         '&:before': { display: 'none' },
@@ -47,7 +48,7 @@ const StyledSlider = styled(Slider)({
             transform: 'rotate(45deg)',
         },
     },
-});
+}));
 
 const MorseSlider: React.FC<SliderProps> = (
     {
@@ -61,9 +62,9 @@ const MorseSlider: React.FC<SliderProps> = (
     }
 ) => (
     <div>
-        <Typography fontSize={'38px'} fontFamily={'Poiret One, sans-serif'}>
+        <MorseTypography variant={'rxlg38'}>
             {label}
-        </Typography>
+        </MorseTypography>
         <StyledSlider
             aria-label={label}
             value={value}

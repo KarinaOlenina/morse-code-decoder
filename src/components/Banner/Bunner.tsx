@@ -1,5 +1,5 @@
 import React from 'react';
-import {Box, ButtonBase, Container, Link, styled, Typography} from '@mui/material';
+import {Box, ButtonBase, Container, Link, styled} from '@mui/material';
 import Row from '../Row/Row';
 import Column from '../Column/Column';
 import '@fontsource/poiret-one';
@@ -8,9 +8,7 @@ import morseImg from '../../assets/img/morse.svg';
 // @ts-ignore
 import arrowDown from '../../assets/img/arrow-down.svg';
 import { useEffect, useState } from 'react';
-
-const pinkColor = '#FF79F2';
-const lightGreenColor = '#8CFF79';
+import MorseTypography from "../../theme/MorseTypography";
 
 const StyledContainer = styled(Container)(() => ({
   display: 'flex',
@@ -18,10 +16,10 @@ const StyledContainer = styled(Container)(() => ({
   alignItems: 'center',
 }));
 
-const StyledTryButton = styled(ButtonBase)(() => ({
+const StyledTryButton = styled(ButtonBase)(({theme}) => ({
   padding: '10px 12px',
   height: '64px',
-  backgroundColor: '#EBEBEB',
+  backgroundColor: theme.palette.custom.background,
   cursor: 'pointer',
   width: '230px',
   marginTop: '35px',
@@ -29,8 +27,8 @@ const StyledTryButton = styled(ButtonBase)(() => ({
   borderRight: '2px solid #000',
 }));
 
-const Colored = styled('span')(({ color }) => ({
-  color: color === 'pinkColor' ? pinkColor : lightGreenColor,
+const Colored = styled('span')(({ color, theme }) => ({
+  color: color === 'pinkColor' ? theme.palette.custom.accentPink : theme.palette.custom.accentGreen,
 }));
 
 const StyledImg = styled('img')(() => ({
@@ -82,27 +80,25 @@ export default function Banner(): JSX.Element {
     <StyledContainer maxWidth="lg" style={{ gap: '25px' }} id={'banner-section'}>
       <Column>
         <Box>
-          <Typography
-            fontSize={'80px'}
-            fontFamily={'Poiret One, sans-serif'}
+          <MorseTypography
+            fontSize={'72px'}
             variant="h1">
             Morse C<Colored color={'pinkColor'}>o</Colored>de Dec
             <Colored color={'lightGreenColor'}>o</Colored>der
-          </Typography>
+          </MorseTypography>
         </Box>
         <Link href={'#morse-decoder-section'} color="inherit" underline="none">
         <StyledTryButton>
-            <Typography
+            <MorseTypography
                 fontWeight={700}
-                fontSize={'38px'}
-                fontFamily={'Poiret One, sans-serif'}>
+                variant={'rxlg38'}>
             <span
                 className="txt-rotate"
                 data-period="1000"
                 data-rotate='[ "- .-. -.--", "Try" ]'>
               <span className="wrap">{displayedText}</span>
             </span>
-            </Typography>
+            </MorseTypography>
           <img style={{
             position: 'absolute',
             right: '-17px',

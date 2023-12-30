@@ -5,7 +5,7 @@ export const BaseButton = styled(ButtonBase)<{
   borderRadius?: string;
   width?: string;
   to?: string;
-}>(({ padding, borderRadius, width }) => ({
+}>(({ padding, borderRadius, width, theme }) => ({
   position: 'relative',
   zIndex: 1,
   display: 'flex',
@@ -23,7 +23,7 @@ export const BaseButton = styled(ButtonBase)<{
   fontWeight: '500',
   textAlign: 'center',
   textDecoration: 'none',
-  color: '#0D111C',
+  color: theme.palette.custom.textPrimary,
 
   '&:disabled': {
     opacity: '50%',

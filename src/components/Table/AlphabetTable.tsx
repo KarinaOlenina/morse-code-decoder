@@ -14,8 +14,9 @@ import FirstPageIcon from '@mui/icons-material/FirstPage';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import LastPageIcon from '@mui/icons-material/LastPage';
-import {Container, styled, Typography} from "@mui/material";
+import {Container, styled} from "@mui/material";
 import Column from '../Column/Column';
+import MorseTypography from "../../theme/MorseTypography";
 
 const StyledContainer = styled(Container)(() => ({
     display: 'flex',
@@ -148,9 +149,9 @@ export default function AlphabetTable() {
     return (
         <StyledContainer id={'morse-code-alphabet'}>
             <Column width={'100%'}>
-                <Typography fontSize={'58px'} fontFamily={'Poiret One, sans-serif'} marginBottom={'50px'}>
+                <MorseTypography variant={'rxlg58'} marginBottom={'50px'}>
                     Morse  Code alphabet
-                </Typography>
+                </MorseTypography>
                 <TableContainer component={Paper}>
                     <Table sx={{ minWidth: 500 }} aria-label="custom pagination table">
                         <TableBody>
@@ -159,12 +160,12 @@ export default function AlphabetTable() {
                                     : rows
                             ).map((row) => (
                                 <TableRow key={row.letterRow1}>
-                                    <TableCell component="th" scope="row">{row.letterRow1}</TableCell>
-                                    <TableCell>{row.morseCodeRow1}</TableCell>
-                                    <TableCell>{row.letterRow2}</TableCell>
-                                    <TableCell>{row.morseCodeRow2}</TableCell>
-                                    <TableCell>{row.letterRow3}</TableCell>
-                                    <TableCell>{row.morseCodeRow3}</TableCell>
+                                    <TableCell style={{fontSize: '20px'}} component="th" scope="row">{row.letterRow1}</TableCell>
+                                    <TableCell style={{fontSize: '20px'}}>{row.morseCodeRow1}</TableCell>
+                                    <TableCell style={{fontSize: '20px'}}>{row.letterRow2}</TableCell>
+                                    <TableCell style={{fontSize: '20px'}}>{row.morseCodeRow2}</TableCell>
+                                    <TableCell style={{fontSize: '20px'}}>{row.letterRow3}</TableCell>
+                                    <TableCell style={{fontSize: '20px'}}>{row.morseCodeRow3}</TableCell>
                                 </TableRow>
                             ))}
                             {emptyRows > 0 && (
