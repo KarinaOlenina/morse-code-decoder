@@ -11,13 +11,23 @@ const StyledContainer = styled(Container)(() => ({
     alignItems: 'center',
 }));
 
+const StyledRow = styled(Row)(({theme}) => ({
+    [theme.breakpoints.down('md')]: {
+        flexDirection: 'column',
+        alignItems: 'start',
+    },
+    '& p': {
+        padding: '10px 0 10px 0',
+    },
+}));
+
 interface FooterLinkProps {
     href: string;
     children: React.ReactNode;
 }
 
 const FooterLink: React.FC<FooterLinkProps> = ({ href, children }) => (
-    <MorseTypography variant={'rm28'}>
+    <MorseTypography fontSize={{ xs: '16px', sm: '20px', md: '26px', lg: '28px' }}>
         <MuiLink href={href} color="inherit" underline="none">
             {children}
         </MuiLink>
@@ -33,12 +43,12 @@ const Footer: React.FC = () => {
                 <Row height={'100%'}>
                     <Column />
                     <Column width={'100%'} height={'100%'} justifyContent={'space-around'}>
-                        <Row justifyContent={'space-between'} fontSize={'28px'}>
+                        <StyledRow justifyContent={'space-between'} fontSize={'28px'}>
                             <FooterLink href={'#banner-section'}>Banner</FooterLink>
                             <FooterLink href={'#morse-decoder-section'}>Morse code Decoder</FooterLink>
                             <FooterLink href={'#morse-code-alphabet'}>Morse Code alphabet</FooterLink>
                             <FooterLink href={'#what-is-morse-code'}>What is Morse code?</FooterLink>
-                        </Row>
+                        </StyledRow>
                         <Row justifyContent={'space-between'}>
                             <MorseTypography variant={'rsm14'}>Copyright 2023. All Rights Reserved</MorseTypography>
                             <MorseTypography variant={'rsm14'}>

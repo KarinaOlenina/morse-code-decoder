@@ -7,7 +7,6 @@ export interface Colors {
   white: string;
   gray50: string;
   gray100: string;
-  gray150: string;
   gray200: string;
   gray300: string;
   gray400: string;
@@ -17,26 +16,11 @@ export interface Colors {
   gray800: string;
   gray900: string;
   pink300: string;
-  red400: string;
-  red500: string;
-  gold200: string;
-  gold400: string;
   green200: string;
-  green300: string;
-  green500: string;
-  green600: string;
-  blue200: string;
-  blue400: string;
-  blue600: string;
-  purple900: string;
-  networkEthereum: string;
-  orange400: string;
 }
 
 export interface Theme {
   white: string;
-
-  chain_1: string;
 
   brandedGradient: string;
   promotionalGradient: string;
@@ -53,8 +37,6 @@ export interface LightTheme extends Theme {
   backgroundSurface: string;
   backgroundModule: string;
   backgroundInteractive: string;
-  backgroundIsSubscriber: string;
-  backgroundIsNotSubscriber: string;
   backgroundTooltip: string;
 
   primary4: string;
@@ -64,11 +46,8 @@ export interface LightTheme extends Theme {
   textTertiary: string;
   textLoader: string;
 
-  accentAction: string;
-  accentActive: string;
   accentGreen: string;
-  accentPink: string;
-  accentChart: string;
+  accentPink: colors.pink300,
 
   accentTextLightPrimary: colors.gray50;
 

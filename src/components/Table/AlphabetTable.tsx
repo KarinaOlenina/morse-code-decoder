@@ -8,7 +8,6 @@ import TableContainer from '@mui/material/TableContainer';
 import TableFooter from '@mui/material/TableFooter';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
 import IconButton from '@mui/material/IconButton';
 import FirstPageIcon from '@mui/icons-material/FirstPage';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
@@ -22,6 +21,20 @@ const StyledContainer = styled(Container)(() => ({
     display: 'flex',
     height: '100vh',
     alignItems: 'center',
+}));
+
+
+const StyledTableContainer = styled(TableContainer)(({theme}) => ({
+    height: '75vh',
+    borderRadius: '5px',
+    boxShadow: theme.palette.custom.deepShadow,
+    backgroundColor: theme.palette.custom.background,
+}));
+
+const StyledTableCell = styled(TableCell)(({theme}) => ({
+    fontSize: '20px',
+    color: theme.palette.custom.textPrimary,
+    backgroundColor: theme.palette.custom.background,
 }));
 
 interface TablePaginationActionsProps {
@@ -125,6 +138,8 @@ const rows = [
 ];
 
 export default function AlphabetTable() {
+    const theme = useTheme();
+
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(9);
 
@@ -149,23 +164,23 @@ export default function AlphabetTable() {
     return (
         <StyledContainer id={'morse-code-alphabet'}>
             <Column width={'100%'}>
-                <MorseTypography variant={'rxlg58'} marginBottom={'50px'}>
+                <MorseTypography fontSize={{ xs: '42px', sm: '48px', md: '52px', lg: '58px' }} marginBottom={'50px'}>
                     Morse  Code alphabet
                 </MorseTypography>
-                <TableContainer component={Paper}>
-                    <Table sx={{ minWidth: 500 }} aria-label="custom pagination table">
+                <StyledTableContainer>
+                    <Table sx={{ minWidth: 500, height: '100%' }} aria-label="custom pagination table">
                         <TableBody>
                             {(rowsPerPage > 0
                                     ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                                     : rows
                             ).map((row) => (
                                 <TableRow key={row.letterRow1}>
-                                    <TableCell style={{fontSize: '20px'}} component="th" scope="row">{row.letterRow1}</TableCell>
-                                    <TableCell style={{fontSize: '20px'}}>{row.morseCodeRow1}</TableCell>
-                                    <TableCell style={{fontSize: '20px'}}>{row.letterRow2}</TableCell>
-                                    <TableCell style={{fontSize: '20px'}}>{row.morseCodeRow2}</TableCell>
-                                    <TableCell style={{fontSize: '20px'}}>{row.letterRow3}</TableCell>
-                                    <TableCell style={{fontSize: '20px'}}>{row.morseCodeRow3}</TableCell>
+                                    <StyledTableCell component="th" scope="row">{row.letterRow1}</StyledTableCell>
+                                    <StyledTableCell>{row.morseCodeRow1}</StyledTableCell>
+                                    <StyledTableCell>{row.letterRow2}</StyledTableCell>
+                                    <StyledTableCell>{row.morseCodeRow2}</StyledTableCell>
+                                    <StyledTableCell>{row.letterRow3}</StyledTableCell>
+                                    <StyledTableCell>{row.morseCodeRow3}</StyledTableCell>
                                 </TableRow>
                             ))}
                             {emptyRows > 0 && (
@@ -177,6 +192,7 @@ export default function AlphabetTable() {
                         <TableFooter>
                             <TableRow>
                                 <TablePagination
+                                    style={{color: theme.palette.custom.textPrimary}}
                                     rowsPerPageOptions={[9]}
                                     colSpan={3}
                                     count={rows.length}
@@ -195,7 +211,7 @@ export default function AlphabetTable() {
                             </TableRow>
                         </TableFooter>
                     </Table>
-                </TableContainer>
+                </StyledTableContainer>
             </Column>
         </StyledContainer>
     );

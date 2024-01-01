@@ -6,9 +6,10 @@ import AlphabetTable from "./components/Table/AlphabetTable";
 import ArticleMorseCode from "./components/ArticleMorseCode/ArticleMorseCode";
 import Footer from "./components/Footer/Footer";
 
-const AppWrapper = styled(Box)(() => ({
-    color: '#000',
-    backgroundColor: '#fff',
+const AppWrapper = styled(Box)(({theme}) => ({
+    backgroundColor: theme.palette.custom.background,
+    color: theme.palette.custom.textPrimary,
+    overflow: 'hidden',
 }));
 
 function App() {

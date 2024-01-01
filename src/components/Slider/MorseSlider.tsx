@@ -13,7 +13,7 @@ type SliderProps = {
 };
 
 const StyledSlider = styled(Slider)(({theme}) => ({
-    color: theme.palette.custom.backgroundInteractive,
+    color: theme.palette.custom.backgroundModule,
     height: 8,
     '& .MuiSlider-track': {
         border: 'none',
@@ -62,7 +62,7 @@ const MorseSlider: React.FC<SliderProps> = (
     }
 ) => (
     <div>
-        <MorseTypography variant={'rxlg38'}>
+        <MorseTypography fontSize={{ xs: '22px', sm: '28px', md: '32px', lg: '38px' }}>
             {label}
         </MorseTypography>
         <StyledSlider

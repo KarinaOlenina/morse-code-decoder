@@ -19,24 +19,34 @@ const StyledButton = styled(BaseButton)(() => ({
 }));
 
 const StyledTextField = styled(TextField)(({theme}) => ({
-  '& label.Mui-focused': {
-    color: theme.palette.custom.textTertiary,
-  },
-  '& .MuiInput-underline:after': {
-    borderBottomColor: theme.palette.custom.accentPink,
-  },
-  '& .MuiOutlinedInput-root': {
-    '& fieldset': {
-      borderColor: theme.palette.custom.textPrimary,
-      borderRadius: '0px',
+    '& label': {
+        color: theme.palette.custom.textSecondary,
+        fontSize: '22px',
     },
-    '&:hover fieldset': {
-      borderColor: theme.palette.custom.textSecondary,
+    '& label.Mui-focused': {
+        color: theme.palette.custom.textSecondary,
+        fontSize: '22px',
     },
-    '&.Mui-focused fieldset': {
-      borderColor: theme.palette.custom.accentGreen,
+    '& .MuiInput-underline:after': {
+        borderBottomColor: theme.palette.custom.accentPink,
     },
-  },
+    '& .MuiOutlinedInput-root': {
+        '& fieldset': {
+            borderColor: theme.palette.custom.textPrimary,
+            borderRadius: '0px',
+            fontSize: '22px',
+        },
+        '&:hover fieldset': {
+            borderColor: theme.palette.custom.textSecondary,
+        },
+        '&.Mui-focused fieldset': {
+            borderColor: theme.palette.custom.accentGreen,
+        },
+    },
+    '& textarea': {
+        fontSize: '28px',
+    },
+
 }));
 
 export default function DecodeTextInput(): JSX.Element {
@@ -127,7 +137,7 @@ export default function DecodeTextInput(): JSX.Element {
   const renderButtons = (type: string) => (
     <Row>
       <Row>
-        <MorseTypography variant={'rxlg58'}>
+        <MorseTypography fontSize={{ xs: '28px', sm: '38px', md: '48px', lg: '58px' }} >
           {type === 'morse' ? 'Morse' : 'Text'}
         </MorseTypography>
       </Row>

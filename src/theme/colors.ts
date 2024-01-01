@@ -3,8 +3,7 @@ import { Colors, DarkTheme, LightTheme } from './theme';
 export const colors: Colors = {
   white: '#FFFFFF',
   gray50: '#EBEBEB',
-  gray100: '#E8ECFB',
-  gray150: '#D2D9EE',
+  gray100: '#D2D9EE',
   gray200: '#B8C0DC',
   gray300: '#bdbdbd',
   gray400: '#7780A0',
@@ -14,20 +13,7 @@ export const colors: Colors = {
   gray800: '#131A2A',
   gray900: '#0D111C',
   pink300: '#ff79f2',
-  red400: '#FA2B39',
-  red500: '#F9374E',
-  gold200: '#EEB317',
-  gold400: '#B17900',
   green200: '#8CFF79',
-  green300: '#40B66B',
-  green500: '#01A686',
-  green600: '#32C36C',
-  blue200: '#ADBCFF',
-  blue400: '#4C82FB',
-  blue600: '#2172E5',
-  purple900: '#1C0337',
-  orange400: '#F86800',
-  networkEthereum: '#627EEA',
 };
 
 export const gapValues = {
@@ -37,8 +23,6 @@ export const gapValues = {
   lg: '24px',
   xl: '32px',
 };
-
-export type Gap = keyof typeof gapValues;
 
 export const opacities = {
   hover: 0.6,
@@ -54,8 +38,6 @@ export const navDimensions = {
 
 const commonTheme = {
   white: colors.white,
-
-  chain_1: colors.networkEthereum,
 
   brandedGradient:
     'linear-gradient(90deg, rgba(1,166,134,1) 0%, rgba(168,255,238,1) 100%);',
@@ -74,10 +56,8 @@ export const darkTheme: DarkTheme = {
   background: colors.gray800,
   background2: colors.gray600,
   backgroundSurface: colors.gray900,
-  backgroundModule: colors.gray800,
+  backgroundModule: colors.gray500,
   backgroundInteractive: colors.gray700,
-  backgroundIsSubscriber: colors.green600,
-  backgroundIsNotSubscriber: colors.red500,
   backgroundTooltip: colors.gray700,
 
   primary4: colors.gray700,
@@ -87,12 +67,9 @@ export const darkTheme: DarkTheme = {
   textTertiary: colors.gray300,
   textLoader: colors.gray200,
 
-  accentAction: colors.orange400,
-  accentActive: colors.orange400,
   accentGreen: colors.green200,
-  accentPink: colors.gold200,
-  accentChart: colors.blue600,
 
+  accentPink: colors.pink300,
 
   accentTextLightPrimary: colors.gray50,
   selectTokenBg: colors.gray800,
@@ -110,8 +87,6 @@ export const lightTheme: LightTheme = {
   backgroundSurface: colors.white,
   backgroundModule: colors.gray50,
   backgroundInteractive: colors.gray100,
-  backgroundIsSubscriber: colors.green500,
-  backgroundIsNotSubscriber: colors.red500,
   backgroundTooltip: colors.white,
 
   primary4: '#01a6860f',
@@ -121,12 +96,8 @@ export const lightTheme: LightTheme = {
   textTertiary: colors.gray300,
   textLoader: colors.gray300,
 
-  accentAction: colors.green500,
-  accentActive: colors.blue400,
   accentGreen: colors.green200,
   accentPink: colors.pink300,
-  accentChart: colors.blue600,
-
 
   accentTextLightPrimary: colors.gray50,
   selectTokenBg: colors.gray50,

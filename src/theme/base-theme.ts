@@ -1,11 +1,5 @@
 import {ThemeOptions} from "@mui/material";
 import { ExtendedTypographyOptions } from './theme';
-export enum MEDIA_WIDTHS {
-    upToExtraSmall = 500,
-    upToSmall = 720,
-    upToMedium = 960,
-    upToLarge = 1280,
-}
 
 export enum BREAKPOINTS {
     xs = 396,
@@ -37,7 +31,7 @@ export const transitions = {
     },
 };
 
-const rootStyles = {
+const rootStyles = () => ({
     body: {
         margin: '0',
         WebkitFontSmoothing: 'antialiased',
@@ -83,7 +77,7 @@ const rootStyles = {
         border: '2px solid',
         borderColor: 'transparent',
     },
-};
+});
 
 export const baseTypographyOptions: ExtendedTypographyOptions = {
     rxlg58: {

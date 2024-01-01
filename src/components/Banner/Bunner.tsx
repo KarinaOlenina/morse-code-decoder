@@ -9,22 +9,33 @@ import morseImg from '../../assets/img/morse.svg';
 import arrowDown from '../../assets/img/arrow-down.svg';
 import { useEffect, useState } from 'react';
 import MorseTypography from "../../theme/MorseTypography";
+import {useTheme} from "@mui/material/styles";
 
-const StyledContainer = styled(Container)(() => ({
+const StyledContainer = styled(Container)(({theme}) => ({
   display: 'flex',
+  gap: '25px',
   height: '100vh',
   alignItems: 'center',
+  maxWidth: 'lg',
+
+  [theme.breakpoints.down('sm')]: {
+    flexDirection: 'column',
+    justifyContent: 'center',
+
+    '& > div:nth-child(2)': {
+      display: 'none',
+    },
+  },
 }));
 
 const StyledTryButton = styled(ButtonBase)(({theme}) => ({
   padding: '10px 12px',
   height: '64px',
-  backgroundColor: theme.palette.custom.background,
   cursor: 'pointer',
   width: '230px',
   marginTop: '35px',
-  borderTop: '2px solid #000',
-  borderRight: '2px solid #000',
+  borderTop: `2px solid ${theme.palette.custom.textPrimary}`,
+  borderRight: `2px solid ${theme.palette.custom.textPrimary}`,
 }));
 
 const Colored = styled('span')(({ color, theme }) => ({
@@ -36,9 +47,14 @@ const StyledImg = styled('img')(() => ({
     width: '100%',
     height: '100%',
   },
+
+  width: '300%',
+  objectFit: 'cover',
+  opacity: 0.1,
 }));
 
 export default function Banner(): JSX.Element {
+
   const [loopIndex, setLoopIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [displayedText, setDisplayedText] = useState('');
@@ -77,11 +93,11 @@ export default function Banner(): JSX.Element {
   };
 
   return (
-    <StyledContainer maxWidth="lg" style={{ gap: '25px' }} id={'banner-section'}>
+    <StyledContainer id={'banner-section'}>
       <Column>
         <Box>
           <MorseTypography
-            fontSize={'72px'}
+              fontSize={{ xs: '62px',sm: '62px', md: '62px',  lg: '72px' }}
             variant="h1">
             Morse C<Colored color={'pinkColor'}>o</Colored>de Dec
             <Colored color={'lightGreenColor'}>o</Colored>der
@@ -90,7 +106,6 @@ export default function Banner(): JSX.Element {
         <Link href={'#morse-decoder-section'} color="inherit" underline="none">
         <StyledTryButton>
             <MorseTypography
-                fontWeight={700}
                 variant={'rxlg38'}>
             <span
                 className="txt-rotate"
@@ -99,11 +114,11 @@ export default function Banner(): JSX.Element {
               <span className="wrap">{displayedText}</span>
             </span>
             </MorseTypography>
-          <img style={{
-            position: 'absolute',
-            right: '-17px',
-            top: '60px',
-          }} src={arrowDown} alt={'arrowDown'} />
+            <img style={{
+              position: 'absolute',
+              right: '-17px',
+              top: '60px',
+            }} src={arrowDown} alt={'arrowDown'}/>
         </StyledTryButton>
         </Link>
       </Column>
