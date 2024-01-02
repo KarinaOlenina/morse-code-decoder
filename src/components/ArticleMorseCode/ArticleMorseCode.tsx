@@ -1,8 +1,7 @@
-import {Container, styled, Typography} from "@mui/material";
+import {Container, styled} from "@mui/material";
 import Column from "../Column/Column";
 import * as React from "react";
 import MorseTypography from "../../theme/MorseTypography";
-import {useTheme} from "@mui/material/styles";
 
 const StyledContainer = styled(Container)(() => ({
     display: 'flex',

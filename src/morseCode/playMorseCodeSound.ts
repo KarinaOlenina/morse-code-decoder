@@ -18,7 +18,7 @@ const playMorseCodeSound = (
   let time = audioContext.currentTime;
 
   const playSymbol = (duration: number) => {
-    let oscillator = audioContext.createOscillator();
+    const oscillator = audioContext.createOscillator();
     oscillator.type = 'sine';
     oscillator.frequency.setValueAtTime(frequency, time);
     oscillator.connect(audioContext.destination);

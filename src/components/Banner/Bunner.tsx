@@ -8,6 +8,7 @@ import morseImg from '../../assets/img/morse.svg';
 import MorseTypography from "../../theme/MorseTypography";
 import Row from '../Row/Row';
 import Column from '../Column/Column';
+import ThemeToggle from "../../theme/components/ThemeToggle";
 
 const StyledContainer = styled(Container)(({theme}) => ({
   display: 'flex',
@@ -20,7 +21,7 @@ const StyledContainer = styled(Container)(({theme}) => ({
     flexDirection: 'column',
     justifyContent: 'center',
 
-    '& > div:nth-child(2)': {
+    '& > div:nth-of-type(2)': {
       display: 'none',
     },
   },
@@ -101,6 +102,7 @@ export default function Banner(): JSX.Element {
   return (
     <StyledContainer id={'banner-section'}>
       <StyledColumn>
+        <ThemeToggle />
         <Box>
           <MorseTypography
               fontSize={{ xs: '62px',sm: '62px', md: '62px',  lg: '72px' }}
