@@ -33,25 +33,15 @@ export interface Theme {
 
 export interface LightTheme extends Theme {
   background: string;
-  background2: string;
   backgroundSurface: string;
   backgroundModule: string;
-  backgroundInteractive: string;
-  backgroundTooltip: string;
-
-  primary4: string;
 
   textPrimary: string;
   textSecondary: string;
   textTertiary: string;
-  textLoader: string;
 
   accentGreen: string;
   accentPink: colors.pink300,
-
-  accentTextLightPrimary: colors.gray50;
-
-  selectTokenBg: string;
 
   deepShadow: string;
 }

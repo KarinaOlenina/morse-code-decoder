@@ -29,12 +29,24 @@ const StyledTableContainer = styled(TableContainer)(({theme}) => ({
     borderRadius: '5px',
     boxShadow: theme.palette.custom.deepShadow,
     backgroundColor: theme.palette.custom.background,
+
+    '& button': {
+        color: theme.palette.custom.accentPink,
+    },
+
+    '& button.Mui-disabled': {
+        color: theme.palette.custom.textTertiary,
+    },
 }));
 
 const StyledTableCell = styled(TableCell)(({theme}) => ({
     fontSize: '20px',
     color: theme.palette.custom.textPrimary,
     backgroundColor: theme.palette.custom.background,
+
+    '& td.MuiTableCell-footer': {
+        border: 'none',
+    },
 }));
 
 interface TablePaginationActionsProps {
@@ -192,7 +204,7 @@ export default function AlphabetTable() {
                         <TableFooter>
                             <TableRow>
                                 <TablePagination
-                                    style={{color: theme.palette.custom.textPrimary}}
+                                    style={{color: theme.palette.custom.textPrimary, border: 'none'}}
                                     rowsPerPageOptions={[9]}
                                     colSpan={3}
                                     count={rows.length}

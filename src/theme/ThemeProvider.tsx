@@ -2,6 +2,7 @@ import React from "react";
 import { ThemeProvider as StyledComponentsThemeProvider } from '@mui/material';
 
 import defaultTheme from './default-theme';
+import darknessTheme from "./darkness-theme";
 
 export default function ThemeProvider({
   children,
@@ -10,7 +11,7 @@ export default function ThemeProvider({
 }): JSX.Element {
 
   return (
-    <StyledComponentsThemeProvider theme={defaultTheme}>
+    <StyledComponentsThemeProvider theme={darknessTheme}>
       {children}
     </StyledComponentsThemeProvider>
   );

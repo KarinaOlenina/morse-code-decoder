@@ -1,15 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {Box, ButtonBase, Container, Link, styled} from '@mui/material';
-import Row from '../Row/Row';
-import Column from '../Column/Column';
+import SouthIcon from '@mui/icons-material/South';
 import '@fontsource/poiret-one';
+
 // @ts-ignore
 import morseImg from '../../assets/img/morse.svg';
-// @ts-ignore
-import arrowDown from '../../assets/img/arrow-down.svg';
-import { useEffect, useState } from 'react';
 import MorseTypography from "../../theme/MorseTypography";
-import {useTheme} from "@mui/material/styles";
+import Row from '../Row/Row';
+import Column from '../Column/Column';
 
 const StyledContainer = styled(Container)(({theme}) => ({
   display: 'flex',
@@ -25,6 +23,14 @@ const StyledContainer = styled(Container)(({theme}) => ({
     '& > div:nth-child(2)': {
       display: 'none',
     },
+  },
+}));
+
+const StyledColumn = styled(Column)(({theme}) => ({
+  paddingLeft: '50px',
+
+  [theme.breakpoints.down('sm')]: {
+    paddingLeft: '20px',
   },
 }));
 
@@ -94,7 +100,7 @@ export default function Banner(): JSX.Element {
 
   return (
     <StyledContainer id={'banner-section'}>
-      <Column>
+      <StyledColumn>
         <Box>
           <MorseTypography
               fontSize={{ xs: '62px',sm: '62px', md: '62px',  lg: '72px' }}
@@ -104,7 +110,7 @@ export default function Banner(): JSX.Element {
           </MorseTypography>
         </Box>
         <Link href={'#morse-decoder-section'} color="inherit" underline="none">
-        <StyledTryButton>
+          <StyledTryButton>
             <MorseTypography
                 variant={'rxlg38'}>
             <span
@@ -114,17 +120,18 @@ export default function Banner(): JSX.Element {
               <span className="wrap">{displayedText}</span>
             </span>
             </MorseTypography>
-            <img style={{
-              position: 'absolute',
-              right: '-17px',
-              top: '60px',
-            }} src={arrowDown} alt={'arrowDown'}/>
-        </StyledTryButton>
+            <SouthIcon
+                style={{
+                  position: 'absolute',
+                  right: '-13px',
+                  top: '60px',
+                }}/>
+          </StyledTryButton>
         </Link>
-      </Column>
+      </StyledColumn>
       <Row>
         <Box>
-          <StyledImg width={'100%'} src={morseImg} alt={'logo'} />
+          <StyledImg width={'100%'} src={morseImg} alt={'logo'}/>
         </Box>
       </Row>
     </StyledContainer>

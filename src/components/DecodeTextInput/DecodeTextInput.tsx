@@ -1,5 +1,5 @@
 import React from 'react';
-import {Slider, Snackbar, styled, TextField} from '@mui/material';
+import {Snackbar, styled, TextField} from '@mui/material';
 import {
   VolumeUp as VolumeUpIcon,
   ContentCopy as ContentCopyIcon,
@@ -45,6 +45,7 @@ const StyledTextField = styled(TextField)(({theme}) => ({
     },
     '& textarea': {
         fontSize: '28px',
+        color: theme.palette.custom.textPrimary,
     },
 
 }));
@@ -145,7 +146,7 @@ export default function DecodeTextInput(): JSX.Element {
         <StyledButton
           color="primary"
           onClick={type === 'morse' ? handlePlaySoundMorse : handlePlaySoundText}>
-          <VolumeUpIcon />
+            {type === 'morse' ?  <VolumeUpIcon /> : ''}
         </StyledButton>
         <audio ref={audioRef}></audio>
         <StyledButton
