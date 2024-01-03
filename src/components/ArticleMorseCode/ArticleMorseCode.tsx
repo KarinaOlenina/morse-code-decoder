@@ -34,8 +34,8 @@ export default function ArticleMorseCode() {
             fontSize={{ xs: '16px', sm: '20px', md: '26px', lg: '28px' }}>
             In Morse code, each letter of the alphabet and each numeral is
             represented by a unique combination of dots and dashes. For example,
-            the letter "A" is represented by ".-" and the letter "B" is
-            represented by "-...". The code is designed to be easily
+            the letter &quot;A&quot; is represented by &quot;.-&quot; and the letter &quot;B&quot; is
+            represented by &quot;-...&quot;. The code is designed to be easily
             transmittable over telegraph lines, using simple on-off keying of an
             electrical signal.
           </MorseTypography>
