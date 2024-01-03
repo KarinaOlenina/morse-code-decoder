@@ -1,13 +1,12 @@
-const playMorseCodeSound = (
-    audioRef: React.RefObject<HTMLAudioElement>,
-    morseCode: string,
-    wpm: number,
-    frequency: number,
+const playMorseCodeSound = async (
+  audioRef: React.RefObject<HTMLAudioElement>,
+  morseCode: string,
+  wpm: number,
+  frequency: number
 ) => {
   if (!audioRef.current) {
     return;
   }
-
 
   const dotDuration = 60 / (50 * wpm);
   const dashDuration = 3 * dotDuration;
@@ -18,27 +17,30 @@ const playMorseCodeSound = (
   let time = audioContext.currentTime;
 
   const playSymbol = (duration: number) => {
-    const oscillator = audioContext.createOscillator();
-    oscillator.type = 'sine';
-    oscillator.frequency.setValueAtTime(frequency, time);
-    oscillator.connect(audioContext.destination);
+    return new Promise((resolve) => {
+      const oscillator = audioContext.createOscillator();
+      oscillator.type = 'sine';
+      oscillator.frequency.setValueAtTime(frequency, time);
+      oscillator.connect(audioContext.destination);
 
-    oscillator.start(time);
-    oscillator.stop(time + duration);
-    time += duration;
-    time += spaceBetweenSymbols;
+      oscillator.start(time);
+      oscillator.stop(time + duration);
+      time += duration;
+      time += spaceBetweenSymbols;
+
+      oscillator.onended = resolve;
+    });
   };
 
   const symbols = morseCode.split('');
 
-  symbols.forEach((symbol) => {
-
+  for (const symbol of symbols) {
     switch (symbol) {
       case '.':
-        playSymbol(dotDuration);
+        await playSymbol(dotDuration);
         break;
       case '-':
-        playSymbol(dashDuration);
+        await playSymbol(dashDuration);
         break;
       case ' ':
         time += spaceBetweenWords;
@@ -47,7 +49,7 @@ const playMorseCodeSound = (
         time += spaceBetweenSymbols;
         break;
     }
-  });
+  }
 };
 
 export default playMorseCodeSound;

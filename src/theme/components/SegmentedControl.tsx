@@ -1,8 +1,7 @@
 import { styled } from '@mui/material';
 import React, { PropsWithChildren } from 'react';
-import Row from "../../components/Row/Row";
-import MorseTypography from "../MorseTypography";
-
+import Row from '../../components/Row/Row';
+import MorseTypography from '../MorseTypography';
 
 interface SegmentWrapperProps {
   active?: string;
@@ -70,12 +69,12 @@ export function Segment<T>({
 }
 
 const SegmentedControlWrapper = styled(Row)(({ theme }) => ({
-    borderRadius: '16px',
-    gap: '4px',
-    padding: '4px',
-    outline: `1px solid ${theme.palette.custom.accentPink}`,
-    outlineOffset: '-1px',
-    width: '70%',
+  borderRadius: '16px',
+  gap: '4px',
+  padding: '4px',
+  outline: `1px solid ${theme.palette.custom.accentPink}`,
+  outlineOffset: '-1px',
+  width: '70%',
 }));
 
 export function SegmentedControl<T>({

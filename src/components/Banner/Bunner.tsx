@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import {Box, ButtonBase, Container, Link, styled} from '@mui/material';
+import { Box, ButtonBase, Container, Link, styled } from '@mui/material';
 import SouthIcon from '@mui/icons-material/South';
 import '@fontsource/poiret-one';
 
 // @ts-ignore
 import morseImg from '../../assets/img/morse.svg';
-import MorseTypography from "../../theme/MorseTypography";
+import MorseTypography from '../../theme/MorseTypography';
 import Row from '../Row/Row';
 import Column from '../Column/Column';
-import ThemeToggle from "../../theme/components/ThemeToggle";
+import ThemeToggle from '../../theme/components/ThemeToggle';
 
-const StyledContainer = styled(Container)(({theme}) => ({
+const StyledContainer = styled(Container)(({ theme }) => ({
   display: 'flex',
   gap: '25px',
   height: '100vh',
@@ -27,7 +27,7 @@ const StyledContainer = styled(Container)(({theme}) => ({
   },
 }));
 
-const StyledColumn = styled(Column)(({theme}) => ({
+const StyledColumn = styled(Column)(({ theme }) => ({
   paddingLeft: '50px',
 
   [theme.breakpoints.down('sm')]: {
@@ -35,7 +35,7 @@ const StyledColumn = styled(Column)(({theme}) => ({
   },
 }));
 
-const StyledTryButton = styled(ButtonBase)(({theme}) => ({
+const StyledTryButton = styled(ButtonBase)(({ theme }) => ({
   padding: '10px 12px',
   height: '64px',
   cursor: 'pointer',
@@ -46,7 +46,10 @@ const StyledTryButton = styled(ButtonBase)(({theme}) => ({
 }));
 
 const Colored = styled('span')(({ color, theme }) => ({
-  color: color === 'pinkColor' ? theme.palette.custom.accentPink : theme.palette.custom.accentGreen,
+  color:
+    color === 'pinkColor'
+      ? theme.palette.custom.accentPink
+      : theme.palette.custom.accentGreen,
 }));
 
 const StyledImg = styled('img')(() => ({
@@ -61,7 +64,6 @@ const StyledImg = styled('img')(() => ({
 }));
 
 export default function Banner(): JSX.Element {
-
   const [loopIndex, setLoopIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [displayedText, setDisplayedText] = useState('');
@@ -105,7 +107,7 @@ export default function Banner(): JSX.Element {
         <ThemeToggle />
         <Box>
           <MorseTypography
-              fontSize={{ xs: '62px',sm: '62px', md: '62px',  lg: '72px' }}
+            fontSize={{ xs: '62px', sm: '62px', md: '62px', lg: '72px' }}
             variant="h1">
             Morse C<Colored color={'pinkColor'}>o</Colored>de Dec
             <Colored color={'lightGreenColor'}>o</Colored>der
@@ -113,27 +115,27 @@ export default function Banner(): JSX.Element {
         </Box>
         <Link href={'#morse-decoder-section'} color="inherit" underline="none">
           <StyledTryButton>
-            <MorseTypography
-                variant={'rxlg38'}>
-            <span
+            <MorseTypography variant={'rxlg38'}>
+              <span
                 className="txt-rotate"
                 data-period="1000"
                 data-rotate='[ "- .-. -.--", "Try" ]'>
-              <span className="wrap">{displayedText}</span>
-            </span>
+                <span className="wrap">{displayedText}</span>
+              </span>
             </MorseTypography>
             <SouthIcon
-                style={{
-                  position: 'absolute',
-                  right: '-13px',
-                  top: '60px',
-                }}/>
+              style={{
+                position: 'absolute',
+                right: '-13px',
+                top: '60px',
+              }}
+            />
           </StyledTryButton>
         </Link>
       </StyledColumn>
       <Row>
         <Box>
-          <StyledImg width={'100%'} src={morseImg} alt={'logo'}/>
+          <StyledImg width={'100%'} src={morseImg} alt={'logo'} />
         </Box>
       </Row>
     </StyledContainer>

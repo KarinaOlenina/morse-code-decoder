@@ -18,19 +18,30 @@ const Row = styled(Box)<{
   borderRadius?: string;
   width?: string;
   padding?: string;
-}>(({ justifyContent, align, gap, border, borderRadius, width, padding, theme }) => ({
-  display: 'flex',
-  justifyContent: `${justifyContent || 'flex-start'}`,
-  alignItems: `${align || 'center'}`,
-  gap: `${gap}`,
-  border: `${border}`,
-  borderRadius: `${borderRadius}`,
-  width: `${width || '100%'}`,
-  padding: `${padding || 0}`,
+}>(
+  ({
+    justifyContent,
+    align,
+    gap,
+    border,
+    borderRadius,
+    width,
+    padding,
+    theme,
+  }) => ({
+    display: 'flex',
+    justifyContent: `${justifyContent || 'flex-start'}`,
+    alignItems: `${align || 'center'}`,
+    gap: `${gap}`,
+    border: `${border}`,
+    borderRadius: `${borderRadius}`,
+    width: `${width || '100%'}`,
+    padding: `${padding || 0}`,
 
-  [theme.breakpoints.down('md')]: {
-    gap: '10px',
-  },
-}));
+    [theme.breakpoints.down('md')]: {
+      gap: '10px',
+    },
+  })
+);
 
 export default Row;

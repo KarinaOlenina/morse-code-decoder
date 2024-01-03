@@ -41,7 +41,7 @@ export interface LightTheme extends Theme {
   textTertiary: string;
 
   accentGreen: string;
-  accentPink: colors.pink300,
+  accentPink: colors.pink300;
 
   deepShadow: string;
 }

@@ -2,18 +2,15 @@ import { atom, useAtom, useAtomValue, useSetAtom } from 'jotai';
 import { atomWithStorage } from 'jotai/utils';
 import ms from 'ms.macro';
 import React, { useCallback, useEffect } from 'react';
-import {
-  LightMode,
-  DarkMode ,
-} from '@mui/icons-material';
+import { LightMode, DarkMode } from '@mui/icons-material';
 
 import {
   addMediaQueryListener,
   removeMediaQueryListener,
 } from '../../utils/matchMedia';
 import { Segment, SegmentedControl } from './SegmentedControl';
-import Row from "../../components/Row/Row";
-import MorseTypography from "../MorseTypography";
+import Row from '../../components/Row/Row';
+import MorseTypography from '../MorseTypography';
 
 const THEME_UPDATE_DELAY = ms`0.1s`;
 const DARKMODE_MEDIA_QUERY = window.matchMedia('(prefers-color-scheme: dark)');
@@ -90,7 +87,11 @@ export default function ThemeToggle({
             Icon={LightMode}
             testId="theme-lightmode"
           />
-          <Segment value={ThemeMode.DARK} Icon={DarkMode} testId="theme-darkmode" />
+          <Segment
+            value={ThemeMode.DARK}
+            Icon={DarkMode}
+            testId="theme-darkmode"
+          />
         </SegmentedControl>
       </Row>
     </Row>

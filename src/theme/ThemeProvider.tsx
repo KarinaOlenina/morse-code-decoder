@@ -1,9 +1,9 @@
-import React, {useMemo} from "react";
+import React, { useMemo } from 'react';
 import { ThemeProvider as StyledComponentsThemeProvider } from '@mui/material';
 
 import defaultTheme from './default-theme';
-import darknessTheme from "./darkness-theme";
-import {useIsDarkMode} from "./components/ThemeToggle";
+import darknessTheme from './darkness-theme';
+import { useIsDarkMode } from './components/ThemeToggle';
 
 export function getTheme(darkMode: boolean) {
   return {

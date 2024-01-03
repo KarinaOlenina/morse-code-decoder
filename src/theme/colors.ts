@@ -66,7 +66,6 @@ export const darkTheme: DarkTheme = {
 
   deepShadow:
     '12px 16px 24px rgba(0, 0, 0, 0.24), 12px 8px 12px rgba(0, 0, 0, 0.24), 4px 4px 8px rgba(0, 0, 0, 0.32);',
-
 };
 
 export const lightTheme: LightTheme = {

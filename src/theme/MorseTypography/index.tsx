@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import { Typography, TypographyProps } from '@mui/material';
 
 import { baseTypographyOptions } from '../base-theme';
