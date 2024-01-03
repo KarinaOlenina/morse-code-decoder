@@ -48,7 +48,6 @@ const playMorseCodeSound = (
         break;
     }
   });
-  console.log(audioContext)
 };
 
 export default playMorseCodeSound;

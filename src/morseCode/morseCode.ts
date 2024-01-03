@@ -24,7 +24,6 @@ class MorseCode {
       .split(' ')
       .map((char) => {
         const curr = this.reverseRosettaStone[char];
-        console.log(curr);
         return curr ?? '#';
       })
       .join('')

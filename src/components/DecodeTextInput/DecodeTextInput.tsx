@@ -106,59 +106,55 @@ export default function DecodeTextInput(): JSX.Element {
         setSliderFrequencyValue(newValue as number);
     };
 
-  const handlePlaySoundText = () => {
-    // playMorseCodeSound(morseCodeResult);
-  };
-
-  const handlePlaySoundMorse = () => {
+    const handlePlaySoundMorse = () => {
         playMorseCodeSound(audioRef, morseCodeResult, sliderWpmValue, sliderFrequencyValue);
     };
 
-
-  const handleCopyText = () => {
+    const handleCopyText = () => {
     navigator.clipboard.writeText(inputText);
     setOpenSnackbar(true);
     setSnackbarMessage('Text copied to clipboard.');
-  };
+    };
 
-  const handleCopyMorse = () => {
+    const handleCopyMorse = () => {
     navigator.clipboard.writeText(morseCodeResult);
     setOpenSnackbar(true);
     setSnackbarMessage('Morse code copied to clipboard.');
-  };
+    };
 
-  const handleCloseSnackbar = () => {
+    const handleCloseSnackbar = () => {
     setOpenSnackbar(false);
-  };
+    };
 
-  const handleFocusChange = (fieldName: string) => {
+    const handleFocusChange = (fieldName: string) => {
     setFocusedTextField(fieldName);
-  };
+    };
 
-  const renderButtons = (type: string) => (
-    <Row>
-      <Row>
-        <MorseTypography fontSize={{ xs: '28px', sm: '38px', md: '48px', lg: '58px' }} >
+    const renderButtons = (type: string) => (
+        <Row>
+        <Row>
+            <MorseTypography fontSize={{ xs: '28px', sm: '38px', md: '48px', lg: '58px' }} >
           {type === 'morse' ? 'Morse' : 'Text'}
-        </MorseTypography>
-      </Row>
-      <Row justifyContent={'end'}>
-        <StyledButton
-          color="primary"
-          onClick={type === 'morse' ? handlePlaySoundMorse : handlePlaySoundText}>
-            {type === 'morse' ?  <VolumeUpIcon /> : ''}
-        </StyledButton>
-        <audio ref={audioRef}></audio>
-        <StyledButton
-          color="primary"
-          onClick={type === 'morse' ? handleCopyMorse : handleCopyText}>
-          <ContentCopyIcon />
-        </StyledButton>
-      </Row>
-    </Row>
-  );
 
-  return (
+            </MorseTypography>
+      </Row>
+            <Row justifyContent={'end'}>
+                <StyledButton
+                    color="primary"
+                    onClick={handlePlaySoundMorse}>
+                    {type === 'morse' ?  <VolumeUpIcon /> : ''}
+                </StyledButton>
+                <audio ref={audioRef}></audio>
+                <StyledButton
+                    color="primary"
+                    onClick={type === 'morse' ? handleCopyMorse : handleCopyText}>
+                    <ContentCopyIcon />
+                    </StyledButton>
+            </Row>
+        </Row>
+    );
+
+    return (
       <Column gap={'50px'} width={'100%'}>
           <Row gap={'50px'}>
               <Column width={'50%'} alignItems={'end'}>

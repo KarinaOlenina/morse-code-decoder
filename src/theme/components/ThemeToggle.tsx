@@ -37,8 +37,6 @@ const themeModeAtom = atomWithStorage<ThemeMode>(
 export function SystemThemeUpdater(): null {
   const setSystemTheme = useSetAtom(systemThemeAtom);
 
-  console.log(systemThemeAtom);
-
   const listener = useCallback(
     (event: MediaQueryListEvent) => {
       setSystemTheme(event.matches ? ThemeMode.DARK : ThemeMode.LIGHT);
