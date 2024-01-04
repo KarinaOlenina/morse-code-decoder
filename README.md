@@ -1,46 +1,68 @@
-# Getting Started with Create React App
+# Morse Code Decoder Project
+<div align="center">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![GitHub contributors](https://img.shields.io/github/contributors/KarinaOlenina/morse-code-decoder?style=for-the-badge&color=blue)
+![GitHub top language](https://img.shields.io/github/languages/top/KarinaOlenina/morse-code-decoder?style=for-the-badge&color=aqua)
+![GitHub last commit](https://img.shields.io/github/last-commit/KarinaOlenina/morse-code-decoder?style=for-the-badge&color=blue)
+![Github Repo Size](https://img.shields.io/github/repo-size/KarinaOlenina/morse-code-decoder?style=for-the-badge&color=aqua)
 
-## Available Scripts
+</div>
 
-In the project directory, you can run:
+## 📖 Overview
 
-### `npm start`
+The Morse Code Decoder Project is an interactive Morse code decoder that provides users with the ability to easily convert text in English to Morse code and vice versa. The project also allows users to listen to audio recordings of Morse code to enhance their reading and understanding skills.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![decoder-gif.gif](src%2Fassets%2Fimg%2Fdecoder-gif.gif)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## ⚙️ Functionalities
 
-### `npm test`
+- 🧑‍💻 <b>Text to Morse and Vice Versa:</b> A user-friendly interface enables users to input text in English and receive its corresponding Morse code, or input Morse code and receive the corresponding text.
+- 🗣 <b>Audio Playback:</b> Users can listen to audio recordings of Morse code to improve their reading and comprehension skills.
+- 🌗 <b>Dark and Light Theme Switching:</b> The application provides the flexibility to switch between dark and light themes for a personalized visual experience.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## ❔How to Use 
 
-### `npm run build`
+#### 👩🏽‍💻 Encoding and Decoding Text:
+- Enter text in English into the text input field to encode it into Morse code.
+- Morse code into the Morse code input field to decode it into text. Use only special characters: . (dot) and - (dash).
+- The formatted text will be displayed in the second Morse code input field.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### 🗣 Audio Listening:
+- To listen to Morse code, press the button next to the Morse code input field on the interface.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### 👥 Copying:
+- Copy text and Morse code using the respective buttons on the interface.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## 🛠 Getting Started
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+To use the application, follow these steps:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+> First, make sure you have [Node.js](https://nodejs.org/), [npm](https://www.npmjs.com/) and [yarn](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable) installed on your computer.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### 📔 Clone the repository:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+HTTPS:
+```bush
+https://github.com/KarinaOlenina/morse-code-decoder.git
+```
 
-## Learn More
+### 📦 Install the project dependencies by running:
+```bush
+yarn install
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 🚀 Start app:
+```bush
+yarn start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## ‍🔧 Technologies Used
+
+- <b>React</b>: A JavaScript library for building user interfaces.
+- <b>MUI</b>: User Interface (UI) library developed for creating reactive and efficient web interfaces.
+
+
+## Contribution
+
+We welcome contributions from other developers! If you have ideas for improvement, please create an issue or submit a pull request.

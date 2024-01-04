@@ -45,6 +45,7 @@ const StyledTextField = styled(TextField)(({ theme }) => ({
   },
   '& textarea': {
     fontSize: '28px',
+    lineHeight: 'normal',
     color: theme.palette.custom.textPrimary,
   },
 }));
@@ -74,13 +75,14 @@ export default function DecodeTextInput(): JSX.Element {
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = event.target.value;
 
-    if (/^[a-zA-Z]*$/.test(inputValue)) {
+    if (/^[()'_&@$¡¿=+";:`/\\|a-zA-Z0-9\s.,!?-]*$/.test(inputValue)) {
       setInputText(inputValue);
     } else {
       setOpenSnackbar(true);
-      setSnackbarMessage('Invalid characters. Only Latin letters are allowed.');
+      setSnackbarMessage('Invalid characters. The hash/pound sign (#), %, ^, non-Latin letters, and some special characters are not allowed.');
     }
   };
+
 
   const handleMorseInputChange = (
     event: React.ChangeEvent<HTMLInputElement>
