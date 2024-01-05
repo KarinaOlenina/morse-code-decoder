@@ -4,7 +4,7 @@ import DecodeTextInput from '../DecodeTextInput/DecodeTextInput';
 
 const StyledContainer = styled(Container)(() => ({
   display: 'flex',
-  height: '100vh',
+  minHeight: '100vh',
   alignItems: 'center',
 }));
 
